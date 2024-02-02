@@ -22,6 +22,8 @@
 using System;
 using UnityEngine;
 using Windows.Kinect;
+using Unity.Collections;
+using UnityEngine.Rendering;
 
 namespace ARSandbox
 {
@@ -101,9 +103,9 @@ namespace ARSandbox
         private Vector3 meshStart = Vector3.zero;
         private bool setInitialLowPassData = true;
 
-        private Texture2D rawDepthsTex;
-        private RenderTexture rawDepthsRT_DS, rawDepthsRT_DS2, rawDepthsRT_DS3;
-        private RenderTexture processedDepthsRT, processedDepthsRT_DS, 
+        [SerializeField] private Texture2D rawDepthsTex;
+        [SerializeField] private RenderTexture rawDepthsRT_DS, rawDepthsRT_DS2, rawDepthsRT_DS3;
+        [SerializeField] private RenderTexture processedDepthsRT, processedDepthsRT_DS, 
                                   processedDepthsRT_DS2, processedDepthsRT_DS3;
         private RenderTexture internalLowPassDataRT, lowPassCounterRT, lowPassDataRT;
         private RenderTexture blurredDataTempRT, blurredDataDSTempRT, blurredDataDS2TempRT;
@@ -112,7 +114,11 @@ namespace ARSandbox
         private ComputeBuffer proceduralVertices_DS2_Buffer, proceduralUV_DS2_Buffer;
         private ComputeBuffer proceduralVertices_DS3_Buffer, proceduralUV_DS3_Buffer;
         private ComputeBuffer collMeshVertices_Buffer, collMeshUV_Buffer, collMeshTris_Buffer;
-
+        
+        private RenderTexture processedDepthsRT_DS2_Alt;
+        [SerializeField] private RenderTexture compareRT;
+        private ComputeBuffer compareBuffer;
+        
         private Texture TopographyLabelMaskTex;
 
         private Vector3[] collMeshVertices;
@@ -121,8 +127,11 @@ namespace ARSandbox
 
         private byte[] rawDepthData;
         public ushort[] depthDataBuffer { get; private set; }
+        
+        private bool useAltDS2 = false;
+        private bool waitingForCompareReadback = false;
 
-        private void Start()
+        private void Start() 
         {
             meshRenderer = GetComponent<MeshRenderer>();
             meshCollider = GetComponent<MeshCollider>();
@@ -539,6 +548,10 @@ namespace ARSandbox
 
             collMeshVertices = new Vector3[num_coll_verts];
             collMeshTris = new int[num_coll_tris];
+            
+            compareRT = InitialiseDepthRT(calibrationDescriptor.DataSize_DS2);
+            processedDepthsRT_DS2_Alt = InitialiseDepthRT(calibrationDescriptor.DataSize_DS2);
+            compareBuffer = new ComputeBuffer(calibrationDescriptor.TotalDataPoints_DS2, sizeof(float), ComputeBufferType.Default);
         }
         private RenderTexture InitialiseDepthRT(Point size)
         {
@@ -584,6 +597,10 @@ namespace ARSandbox
                 collMeshVertices_Buffer.Release();
                 collMeshUV_Buffer.Release();
                 collMeshTris_Buffer.Release();
+                
+                compareRT.Release();
+                processedDepthsRT_DS2_Alt.Release();
+                compareBuffer.Release();
 
                 colliderMesh.Clear();
             }
@@ -668,6 +685,12 @@ namespace ARSandbox
         }
         private void ProcessSandboxData()
         {
+            // // Jack Additions 
+            // RenderTexture processedDepthsRT_DS2_Curr = useAltDS2 ? processedDepthsRT_DS2_Alt : processedDepthsRT_DS2;
+            // RenderTexture processedDepthsRT_DS2_Prev = useAltDS2 ? processedDepthsRT_DS2 : processedDepthsRT_DS2_Alt;
+            
+            if (!waitingForCompareReadback) useAltDS2 = !useAltDS2;
+
             if (SandboxResolution == SandboxResolution.RawData)
             {
                 // Create downsampled raw data
@@ -699,9 +722,13 @@ namespace ARSandbox
                 SandboxCSHelper.Run_DownsampleRT(SandboxProcessingShader, processedDepthsRT_DS, processedDepthsRT_DS2);
                 SandboxCSHelper.Run_DownsampleRT(SandboxProcessingShader, processedDepthsRT_DS2, processedDepthsRT_DS3);
 
+                // // Jack Additions
+                // SandboxCSHelper.Run_CompareRT(SandboxProcessingShader, processedDepthsRT_DS2, processedDepthsRT_DS2,
+                //     compareRT, compareBuffer, OnCompareRTCompleteReadback);
+                
                 SandboxCSHelper.Run_BlurRT(SandboxProcessingShader, processedDepthsRT_DS, blurredDataDSTempRT, processedDepthsRT_DS);
                 SandboxCSHelper.Run_BlurRT(SandboxProcessingShader, processedDepthsRT_DS2, blurredDataDS2TempRT, processedDepthsRT_DS2);
-
+                
                 switch(SandboxResolution)
                 {
                     case SandboxResolution.Original:
@@ -728,6 +755,7 @@ namespace ARSandbox
                 
                 SandboxCSHelper.Run_GenerateSandboxMesh(SandboxProcessingShader, processedDepthsRT_DS3, collMeshVertices_Buffer, collMeshUV_Buffer, collMeshTris_Buffer,
                                                         meshStart, MESH_XY_STRIDE_DS3, MESH_Z_SCALE);
+                waitingForCompareReadback = true;
             }
 
             if (colliderDelay == COLL_MESH_DELAY)
@@ -745,6 +773,18 @@ namespace ARSandbox
             {
                 colliderDelay++;
             }
+        }
+
+        private void OnCompareRTCompleteReadback(AsyncGPUReadbackRequest request)
+        {
+            if (request.hasError)
+            {
+                Debug.LogError("GPU readback error detected.");
+                return;
+            }
+            
+
+            waitingForCompareReadback = false;
         }
     }
 }

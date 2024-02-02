@@ -19,9 +19,12 @@
 //  along with sensilab-ar-sandbox.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace ARSandbox
 {
@@ -38,6 +41,7 @@ namespace ARSandbox
         public const string CS_CONTOUR_NON_MAXIMAL_SUPRESSION = "CS_ContourNonMaximalSupression";
         public const string CS_CONTOUR_FIND_PATHS = "CS_ContourFindPaths";
         public const string CS_EXTRACT_DEPTH_DATA = "CS_ExtractDepthData";
+        public const string CS_COMPARE_RT = "CS_CompareRT";
 
         public static readonly Point CS_SQUARE_LAYOUT_16 = new Point(16, 16);
 
@@ -244,6 +248,32 @@ namespace ARSandbox
             extractBuffer.Dispose();
 
             return extractedDepthData;
+        }
+
+        public static void Run_CompareRT(
+            ComputeShader sandboxCS, 
+            Texture rt1, 
+            Texture rt2,
+            RenderTexture resultBufferRT,
+            ComputeBuffer resultBufferCB,
+            Action<AsyncGPUReadbackRequest> callback)
+        {
+            int kernelHandle = sandboxCS.FindKernel(CS_COMPARE_RT);
+            sandboxCS.SetTexture(kernelHandle, "CompareRT1", rt1);
+            sandboxCS.SetTexture(kernelHandle, "CompareRT2", rt2);
+            sandboxCS.SetTexture(kernelHandle, "CompareResultBuffer", resultBufferRT);
+
+            int texSizeX = rt1.width;
+            int texSizeY = rt1.height;
+
+            int[] texSize = new int[2] { texSizeX, texSizeY };
+            sandboxCS.SetInts("CompareParams", texSize);
+            
+            Point threadsToRun = ComputeShaderHelpers.CalculateThreadsToRun(new Point(texSizeX, texSizeY), CS_SQUARE_LAYOUT_16);
+            sandboxCS.Dispatch(kernelHandle, threadsToRun.x, threadsToRun.y, 1);
+
+            AsyncGPUReadback.Request(resultBufferRT, 0, callback);
+            //AsyncGPUReadback.RequestIntoNativeArray(ref resultBufferNativeArray, resultBufferRT, 0, callback);
         }
     }
 }

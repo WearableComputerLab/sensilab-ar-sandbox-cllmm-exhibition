@@ -22,6 +22,7 @@
 #pragma kernel CS_LowPassData
 #pragma kernel CS_SetInitialLowPassData
 #pragma kernel CS_DownsampleRT
+#pragma kernel CS_CompareRT
 #pragma kernel CS_GaussianBlurHorizontal
 #pragma kernel CS_GaussianBlurVertical
 #pragma kernel CS_GeneratePlaneMesh
@@ -152,6 +153,33 @@ void CS_DownsampleRT (uint3 id : SV_DispatchThreadID)
 		DownsampledDataRT[id.xy] = (float)RawDataRT.SampleLevel(linearClampSampler, texCoordMax, 0);
 	}
 }
+
+// Jack's Testing =======================================================================
+
+// Input
+Texture2D<float> CompareRT1;
+Texture2D<float> CompareRT2;
+uint2 CompareParams = uint2(512, 424);
+#define TEX_SIZE_COMPARE_X		(CompareParams.x) 
+#define TEX_SIZE_COMPARE_Y		(CompareParams.y)
+
+// Output
+RWTexture2D<float> CompareResultBuffer;
+
+[numthreads(16,16,1)]
+void CS_CompareRT (uint3 id : SV_DispatchThreadID)
+{
+	float2 texCoord = float2(id.x / TEX_SIZE_COMPARE_X, id.y / TEX_SIZE_COMPARE_Y);
+	float texVal1 = (float) CompareRT1.SampleLevel(linearClampSampler, texCoord, 0);
+	float texVal2 = (float) CompareRT2.SampleLevel(linearClampSampler, texCoord, 0);
+
+	if (id.x < TEX_SIZE_COMPARE_X && id.y < TEX_SIZE_COMPARE_Y) {
+		float result = abs(texVal1 - texVal2);
+		CompareResultBuffer[id.xy] = result * 100000.0;
+	}
+}
+
+// ======================================================================================
 
 // Gaussian Blur shader
 Texture2D<float> UnblurredDataRT;
