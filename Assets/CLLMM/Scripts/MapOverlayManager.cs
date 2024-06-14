@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace CLLMM.Scripts
 {
+    /// <summary>
+    /// Temporary monolithic manager for all things overlay related.
+    /// </summary>
     public class MapOverlayManager : MonoBehaviour
     {
         [SerializeField] private Camera _overlayProjectorCamera;

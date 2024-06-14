@@ -1,4 +1,6 @@
-﻿namespace Mapbox.Examples
+﻿using UnityEngine.Events;
+
+namespace Mapbox.Examples
 {
 	using Mapbox.Unity.Map;
 	using Mapbox.Unity.Utilities;
@@ -7,7 +9,7 @@
 	using UnityEngine.EventSystems;
 	using System;
 
-	public class QuadTreeCameraMovement : MonoBehaviour
+	public class QuadTreeCameraMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
 		[SerializeField]
 		[Range(1, 20)]
@@ -25,6 +27,8 @@
 		[SerializeField]
 		bool _useDegreeMethod;
 
+		[SerializeField] private UnityEvent OnMouseScroll;
+		
 		private Vector3 _origin;
 		private Vector3 _mousePosition;
 		private Vector3 _mousePositionPrevious;
@@ -32,7 +36,8 @@
 		private bool _isInitialized = false;
 		private Plane _groundPlane = new Plane(Vector3.up, 0);
 		private bool _dragStartedOnUI = false;
-
+		private bool _pointerOverElement;
+		
 		void Awake()
 		{
 			if (null == _referenceCamera)
@@ -48,7 +53,7 @@
 
 		public void Update()
 		{
-			if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject())
+			if (Input.GetMouseButtonDown(0) && !_pointerOverElement)
 			{
 				_dragStartedOnUI = true;
 			}
@@ -137,6 +142,7 @@
 			if (Math.Abs(zoom - _mapManager.Zoom) > 0.0f)
 			{
 				_mapManager.UpdateMap(_mapManager.CenterLatitudeLongitude, zoom);
+				OnMouseScroll.Invoke();
 			}
 		}
 
@@ -182,7 +188,7 @@
 				Debug.Log("Latitude: " + latlongDelta.x + " Longitude: " + latlongDelta.y);
 			}
 
-			if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+			if (Input.GetMouseButton(0) && _pointerOverElement)
 			{
 				var mousePosScreen = Input.mousePosition;
 				//assign distance of camera to ground plane to z, otherwise ScreenToWorldPoint() will always return the position of the camera
@@ -224,10 +230,10 @@
 				}
 				else
 				{
-					if (EventSystem.current.IsPointerOverGameObject())
-					{
-						return;
-					}
+					// if (_pointerOverElement)
+					// {
+					// 	return;
+					// }
 					_mousePositionPrevious = _mousePosition;
 					_origin = _mousePosition;
 				}
@@ -236,7 +242,7 @@
 
 		void UseDegreeConversion()
 		{
-			if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+			if (Input.GetMouseButton(0) && !_pointerOverElement)
 			{
 				var mousePosScreen = Input.mousePosition;
 				//assign distance of camera to ground plane to z, otherwise ScreenToWorldPoint() will always return the position of the camera
@@ -281,7 +287,7 @@
 				}
 				else
 				{
-					if (EventSystem.current.IsPointerOverGameObject())
+					if (_pointerOverElement)
 					{
 						return;
 					}
@@ -296,6 +302,16 @@
 			float distance;
 			if (!_groundPlane.Raycast(ray, out distance)) { return Vector3.zero; }
 			return ray.GetPoint(distance);
+		}
+
+		public void OnPointerEnter(PointerEventData eventData)
+		{
+			_pointerOverElement = true;
+		}
+
+		public void OnPointerExit(PointerEventData eventData)
+		{
+			_pointerOverElement = false;
 		}
 	}
 }
