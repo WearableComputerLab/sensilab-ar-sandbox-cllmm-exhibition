@@ -1,0 +1,294 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.13f1 (9e7d58001ecf) revision 10386776'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Enterprise' Language: 'en' Physical Memory: 32480 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/fraserjd/Desktop/Unity Projects/sensilab-CLLMM
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+53244
+Successfully changed project path to: C:/Users/fraserjd/Desktop/Unity Projects/sensilab-CLLMM
+C:/Users/fraserjd/Desktop/Unity Projects/sensilab-CLLMM
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 91.13 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.13f1 (9e7d58001ecf)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/fraserjd/Desktop/Unity Projects/sensilab-CLLMM/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2080 SUPER (ID=0x1e81)
+    Vendor:   NVIDIA
+    VRAM:     8001 MB
+    Driver:   31.0.15.2756
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56016
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.009534 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 51.50 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.594 seconds
+Domain Reload Profiling:
+	ReloadAssembly (594ms)
+		BeginReloadAssembly (77ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (409ms)
+			LoadAssemblies (74ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (100ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (23ms)
+			SetupLoadedEditorAssemblies (234ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (53ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (52ms)
+				BeforeProcessingInitializeOnLoad (3ms)
+				ProcessInitializeOnLoadAttributes (85ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.017427 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.93 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+Mono: successfully reloaded assembly
+- Completed reload, in  1.138 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1139ms)
+		BeginReloadAssembly (219ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (124ms)
+		EndReloadAssembly (814ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (188ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (429ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (195ms)
+				ProcessInitializeOnLoadMethodAttributes (127ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.16 seconds
+Refreshing native plugins compatible for Editor in 0.85 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3120 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 109 unused Assets / (1.0 MB). Loaded Objects now: 3514.
+Memory consumption went from 120.5 MB to 119.5 MB.
+Total: 5.461800 ms (FindLiveObjects: 0.243500 ms CreateObjectMapping: 0.238200 ms MarkObjects: 4.713300 ms  DeleteObjects: 0.266000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2059833.823214 seconds.
+  path: Assets/CLLMM/Sprites/UI/binIcon.png
+  artifactKey: Guid(68e1d992d12ca83429a1ccd87d3568ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CLLMM/Sprites/UI/binIcon.png using Guid(68e1d992d12ca83429a1ccd87d3568ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1e1760cf4cbcd92f8cc0e0990fd6c86') in 0.142869 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 43.029116 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/aerialway-15.png
+  artifactKey: Guid(c80c2e2443adb6d478363a64f4adfb6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/aerialway-15.png using Guid(c80c2e2443adb6d478363a64f4adfb6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c739618807dd909e943b29fed458235f') in 0.015703 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.011513 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/aquarium-15.png
+  artifactKey: Guid(2ab42ac037a0be8488242b6280d589f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/aquarium-15.png using Guid(2ab42ac037a0be8488242b6280d589f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46f2aba8683cbfd865d3c90fb6e896b5') in 0.014829 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/bus-15.png
+  artifactKey: Guid(78f64b0fd92be8044b951eb0e474cee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/bus-15.png using Guid(78f64b0fd92be8044b951eb0e474cee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '678b15fead725db01866f6ccf51e5ec8') in 0.015068 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/cricket-15.png
+  artifactKey: Guid(9e44961703e2ebe408e6fea710bdfdc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/cricket-15.png using Guid(9e44961703e2ebe408e6fea710bdfdc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '619063102c8c2d1c2e0cf52a1abaed55') in 0.019215 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/circle-stroked-15.png
+  artifactKey: Guid(fd2b6f67e5eb18f499770977400b8dec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/circle-stroked-15.png using Guid(fd2b6f67e5eb18f499770977400b8dec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '651207b2e3632396d50d585ed2922397') in 0.012829 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/cinema-15.png
+  artifactKey: Guid(4e50a743209c88d46aebeb2a8c761b86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/cinema-15.png using Guid(4e50a743209c88d46aebeb2a8c761b86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cc7a210931b758b1846a0f23cbcdfbf') in 0.012013 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/alcohol-shop-15.png
+  artifactKey: Guid(df4b49bce9c77c44b95674e6c1249cfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/alcohol-shop-15.png using Guid(df4b49bce9c77c44b95674e6c1249cfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '305307a7c47e4e98b73bff95971c0912') in 0.011342 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Mapbox/Examples/Textures/CircleSmall_Fill.png
+  artifactKey: Guid(f04f7faa5cfd8444a9b61e426135725f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Textures/CircleSmall_Fill.png using Guid(f04f7faa5cfd8444a9b61e426135725f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fc18bc1513e1ca151a18e97d5c8f151') in 0.011437 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Mapbox/Resources/Mapbox/PrefabScreens/CitySimulator.gif
+  artifactKey: Guid(53e90d032a2624ab1801469b8ce804e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/Mapbox/PrefabScreens/CitySimulator.gif using Guid(53e90d032a2624ab1801469b8ce804e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6051254500f9d04ed9c49fac2d9d6853') in 0.018824 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/clothing-store-15.png
+  artifactKey: Guid(44aa0e542e870c0428f769ff6a66d886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/clothing-store-15.png using Guid(44aa0e542e870c0428f769ff6a66d886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03b55b2b5748cee2ae4a0fdd8e2fc639') in 0.011313 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/building-15.png
+  artifactKey: Guid(c28cf76c7e16569499fe77e47467dff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/building-15.png using Guid(c28cf76c7e16569499fe77e47467dff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f68eaa8e69d9a7f7b2aa73295828d739') in 0.010521 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/castle-15.png
+  artifactKey: Guid(497d7ff58b11fdc4980f85c156fe948f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/castle-15.png using Guid(497d7ff58b11fdc4980f85c156fe948f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bcbe9cd4d361ad8d1a6448c30463853') in 0.011170 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Mapbox/Textures/CornerPanelRadius_12px_Stroke_1px.png
+  artifactKey: Guid(184ca10c8fb4d4c4b988276fd798c9dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Textures/CornerPanelRadius_12px_Stroke_1px.png using Guid(184ca10c8fb4d4c4b988276fd798c9dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de18c3207388f142626bd7eadaeee20b') in 0.012205 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/buddhism-15.png
+  artifactKey: Guid(64547378883ea334f9e656e15e450a61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/buddhism-15.png using Guid(64547378883ea334f9e656e15e450a61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98e71f74dd73e219f23afb1ff11cdf99') in 0.011210 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/america-football-15.png
+  artifactKey: Guid(0ab7e81663cf1d94e9bd71c89d6f82d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/america-football-15.png using Guid(0ab7e81663cf1d94e9bd71c89d6f82d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb72c654a53b49ef8a5df945e1a1057a') in 0.010416 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/attraction-15.png
+  artifactKey: Guid(022e18d3996572049b374cb59e79ee14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/attraction-15.png using Guid(022e18d3996572049b374cb59e79ee14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '523b6e70f3c300a37c6e6d850ea6e6f7') in 0.011920 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/campsite-15.png
+  artifactKey: Guid(39eb1f9f985f3ee4986ae5ca5e7f041d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/campsite-15.png using Guid(39eb1f9f985f3ee4986ae5ca5e7f041d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8954c65e1cc74638b5efc02a18b0bc9') in 0.011187 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/commercial-15.png
+  artifactKey: Guid(7f1f9d40832d0e349a4a04c4c59cc880) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/commercial-15.png using Guid(7f1f9d40832d0e349a4a04c4c59cc880) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfdceb10872c0b02c3ef0c110326e0f6') in 0.011427 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/bakery-15.png
+  artifactKey: Guid(6410ee84909c52546be3dece81113978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/bakery-15.png using Guid(6410ee84909c52546be3dece81113978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '739bd6be4d358b7848849cd3602ae67a') in 0.012023 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/bank-15.png
+  artifactKey: Guid(c4c5f05da0835fd4e80a9175d80435a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/bank-15.png using Guid(c4c5f05da0835fd4e80a9175d80435a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa34ae3ffd8440d6eb991c39e250b4de') in 0.012689 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
