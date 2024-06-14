@@ -64,6 +64,16 @@ namespace CLLMM.Scripts
             }
         }
 
+        public void DestroyAllMapPins()
+        {
+            foreach (MapPin mapPin in _mapPins)
+            {
+                Destroy(mapPin.gameObject);
+            }
+            
+            _mapPins.Clear();
+        }
+
         // TODO: Inefficient
         public MapPin GetMapPinClosestToWorldPoint(Vector3 worldPos, out float distance)
         {
