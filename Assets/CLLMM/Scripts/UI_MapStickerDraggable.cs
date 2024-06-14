@@ -32,6 +32,18 @@ namespace CLLMM.Scripts
         private MapStickerPin _mapStickerPin;
         private bool _isDragging;
         private Transform _topLevelParent;
+
+        public MapSticker MapSticker
+        {
+            get => _mapSticker;
+            set => _mapSticker = value;
+        }
+        
+        public RectTransform MapUIPreview
+        {
+            get => _mapUIPreview;
+            set => _mapUIPreview = value;
+        }
         
         private void Start()
         {

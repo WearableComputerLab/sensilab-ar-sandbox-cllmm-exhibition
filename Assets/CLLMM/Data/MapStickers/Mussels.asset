@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aaa08c500faa4dafa2b8dd7708cafa1e, type: 3}
-  m_Name: Mussles
+  m_Name: Mussels
   m_EditorClassIdentifier: 
   StickerName: Mussels
   StickerSprite: {fileID: 21300000, guid: 88a804d03ee0ca64488c133b330e9054, type: 3}
