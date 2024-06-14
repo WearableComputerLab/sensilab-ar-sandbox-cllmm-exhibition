@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 4584073185109631083}
   - component: {fileID: 4584073185109631081}
   - component: {fileID: 4584073185109631082}
+  - component: {fileID: 6336166106354383264}
   m_Layer: 0
   m_Name: MapStickerDraggable
   m_TagString: Untagged
@@ -255,6 +256,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6336166106354383264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584073185109631086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 250
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &4584073185454314977
 GameObject:
   m_ObjectHideFlags: 0

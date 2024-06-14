@@ -11,7 +11,10 @@ namespace CLLMM.Scripts
     /// UI element for dragging a map sticker onto a UI map preview rect, which will then be previewed/placed
     /// on the map as a map pin. 
     /// </summary>
-    public class UI_MapStickerDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    public class UI_MapStickerDraggable : MonoBehaviour,
+        IPointerDownHandler,
+        IPointerUpHandler,
+        IDragHandler
     {
         [SerializeField] private MapSticker _mapSticker;
         [SerializeField] private MapboxController _mapboxController;
@@ -28,7 +31,7 @@ namespace CLLMM.Scripts
 
         private MapStickerPin _mapStickerPin;
         private bool _isDragging;
-        private bool _isOver;
+        private Transform _topLevelParent;
         
         private void Start()
         {
@@ -38,6 +41,8 @@ namespace CLLMM.Scripts
             _uiDraggableImage.sprite = _mapSticker.StickerSprite;
             
             _stickerLabel.text = _mapSticker.StickerName;
+
+            _topLevelParent = GetComponentInParent<Canvas>().transform;
         }
 
         private void Update()
@@ -55,21 +60,26 @@ namespace CLLMM.Scripts
         public void OnPointerDown(PointerEventData eventData)
         {
             _uiDraggable.gameObject.SetActive(true);
-            
+            _uiDraggable.transform.SetParent(_topLevelParent);
+
             _mapStickerPin = Instantiate(_mapPinPrefab,
                 _mapboxController.GetMapWorldPositionFromCameraUV(GetNormalisedMousePositionWithinMapRect()),
                 Quaternion.identity);
             
+            
             _mapStickerPin.StickerSprite.sprite = _mapSticker.StickerSprite;
             
             _isDragging = true;
+            
+            eventData.Use();
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             _uiDraggable.gameObject.SetActive(false);
-
-            if (_isOver)
+            _uiDraggable.transform.SetParent(transform);
+            
+            if (IsMouseOverMapRect())
             {
                 _mapStickerPin.PinLatLong =
                     _mapboxController.GetMapCoordinatesFromCameraUV(GetNormalisedMousePositionWithinMapRect());
@@ -78,20 +88,18 @@ namespace CLLMM.Scripts
             }
             else
             {
-                Destroy(_mapStickerPin);
+                Destroy(_mapStickerPin.gameObject);
+                _mapStickerPin = null;
             }
             
             _isDragging = false;
+            
+            eventData.Use();
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        public void OnDrag(PointerEventData eventData)
         {
-            _isOver = true;
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            _isOver = false;
+            eventData.Use();
         }
         
         private Vector2 GetNormalisedMousePositionWithinMapRect()
@@ -101,6 +109,12 @@ namespace CLLMM.Scripts
             normalisedMousePos.x += 0.5f;
             normalisedMousePos.y += 0.5f;
             return normalisedMousePos;
+        }
+        
+        private bool IsMouseOverMapRect()
+        {
+            Vector2 normPos = GetNormalisedMousePositionWithinMapRect();
+            return normPos.x >= 0 && normPos.x <= 1 && normPos.y >= 0 && normPos.y <= 1;
         }
     }
 }
