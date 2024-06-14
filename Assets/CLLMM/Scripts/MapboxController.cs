@@ -16,13 +16,10 @@ namespace CLLMM.Scripts
     /// </summary>
     public class MapboxController : MonoBehaviour
     {
-        [SerializeField] private AbstractMap _map; 
+        [SerializeField] private AbstractMap _map;
+        [SerializeField] private Camera _mapCamera;
         [SerializeField] private float _transitionZoomSmoothTime = 1.0f;
         [SerializeField] private float _transitionLatLongSmoothTime = 1.0f;
-
-        [SerializeField] private MapboxLocation _locationA;
-        [SerializeField] private MapboxLocation _locationB;
-
         [SerializeField] private Text _coordinatesText;
         
         private bool _isTransitionActive;
@@ -69,6 +66,21 @@ namespace CLLMM.Scripts
         public void TransitionToLocation(MapboxLocation location)
         {
             TransitionToLatLong(location.LatLong, location.Zoom);
+        }
+        
+        public Vector3 GetMapWorldPositionFromCameraUV(Vector2 uv)
+        {
+            // TODO: Consider map tile position, 3D etc
+            Vector3 viewportPos = new Vector3(uv.x, uv.y, 0);
+            Vector3 worldPos = _mapCamera.ViewportToWorldPoint(viewportPos);
+            worldPos.y = 0f;
+            return worldPos;
+        }
+
+        public Vector2d GetMapCoordinatesFromCameraUV(Vector2 uv)
+        {
+            Vector3 worldPos = GetMapWorldPositionFromCameraUV(uv);
+            return _map.WorldToGeoPosition(worldPos);
         }
         
         /// <summary>

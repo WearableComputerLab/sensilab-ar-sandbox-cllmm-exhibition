@@ -27,6 +27,9 @@ namespace Mapbox.Examples
 		[SerializeField]
 		bool _useDegreeMethod;
 
+		[SerializeField] 
+		bool _updateEnabled = true;
+		
 		[SerializeField] private UnityEvent OnMouseScroll;
 		
 		private Vector3 _origin;
@@ -53,7 +56,7 @@ namespace Mapbox.Examples
 
 		public void Update()
 		{
-			if (Input.GetMouseButtonDown(0) && !_pointerOverElement)
+			if (Input.GetMouseButtonDown(0) && !_pointerOverElement && _updateEnabled)
 			{
 				_dragStartedOnUI = true;
 			}
@@ -69,6 +72,8 @@ namespace Mapbox.Examples
 		{
 			if (!_isInitialized) { return; }
 
+			if (!_updateEnabled) { return; }
+			
 			if (!_dragStartedOnUI)
 			{
 				if (Input.touchSupported && Input.touchCount > 0)
@@ -80,6 +85,11 @@ namespace Mapbox.Examples
 					HandleMouseAndKeyBoard();
 				}
 			}
+		}
+		
+		public void SetUpdateEnabled(bool updateEnabled)
+		{
+			_updateEnabled = updateEnabled;
 		}
 
 		void HandleMouseAndKeyBoard()
