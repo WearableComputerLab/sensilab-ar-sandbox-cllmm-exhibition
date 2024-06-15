@@ -25,7 +25,7 @@ namespace CLLMM.Scripts
         public UnityEvent OnStickerDropped;
         
         private bool _hasDraggedPin;
-        private MapPin _draggedPin;
+        private MapStickerPin _draggedPin;
         private Vector2d _startPinLatLong;
         private bool _pointerOver;
         private bool _pointerDown;
@@ -54,7 +54,7 @@ namespace CLLMM.Scripts
         {
             Vector2 mousePos = GetNormalisedMousePositionWithinMapRect();
             Vector3 mapWorldPos = _mapController.GetMapWorldPositionFromCameraUV(mousePos);
-            MapPin mapPin = _pinManager.GetMapPinClosestToWorldPoint(mapWorldPos, out float distance);
+            MapStickerPin mapPin = _pinManager.GetMapPinClosestToWorldPoint<MapStickerPin>(mapWorldPos, out float distance);
 
             if (mapPin != null && distance <= _maxSelectionDistance)
             {
@@ -86,6 +86,9 @@ namespace CLLMM.Scripts
                 
                 _pinManager.RegisterMapPin(_draggedPin);
                 _pinManager.UpdateMapPins();
+                
+                _draggedPin.TriggerDropEffect(false);
+                
                 _draggedPin = null;
                 _hasDraggedPin = false;
                 

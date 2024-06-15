@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,6 +22,7 @@ namespace CLLMM.Scripts
         [SerializeField] private MapboxPinManager _mapboxPinManager;
         [SerializeField] private RectTransform _mapUIPreview;
         
+        [SerializeField] private Transform _spriteContainer;
         [SerializeField] private Image _stickerImage;
         [SerializeField] private TMP_Text _stickerLabel;
         
@@ -82,6 +84,8 @@ namespace CLLMM.Scripts
             _mapStickerPin.StickerSprite.sprite = _mapSticker.StickerSprite;
             
             _isDragging = true;
+
+            _spriteContainer.DOScale(Vector3.one * 1.25f, 0.25f);
             
             eventData.Use();
         }
@@ -96,7 +100,7 @@ namespace CLLMM.Scripts
                 _mapStickerPin.PinLatLong =
                     _mapboxController.GetMapCoordinatesFromCameraUV(GetNormalisedMousePositionWithinMapRect());
                 _mapboxPinManager.RegisterMapPin(_mapStickerPin);
-                _mapStickerPin.TriggerDropPartciles();
+                _mapStickerPin.TriggerDropEffect(true);
                 _mapStickerPin = null;
             }
             else
@@ -106,6 +110,8 @@ namespace CLLMM.Scripts
             }
             
             _isDragging = false;
+            
+            _spriteContainer.DOScale(Vector3.one, 0.25f);
             
             eventData.Use();
         }
