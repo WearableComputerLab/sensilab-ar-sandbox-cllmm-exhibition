@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Ecosystem Services
   StickerSprite: {fileID: 21300000, guid: c97ed3f101b3cb447abe384705c48f0e, type: 3}
+  StickerColor: {r: 0.6182681, g: 0.375534, b: 0.8207547, a: 1}

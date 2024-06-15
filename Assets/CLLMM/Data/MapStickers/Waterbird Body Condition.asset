@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Waterbird Body Condition
   StickerSprite: {fileID: 21300000, guid: f72bf90ff0115ba43a08dd666a55604f, type: 3}
+  StickerColor: {r: 0.35555357, g: 0.8867924, b: 0.38411477, a: 1}

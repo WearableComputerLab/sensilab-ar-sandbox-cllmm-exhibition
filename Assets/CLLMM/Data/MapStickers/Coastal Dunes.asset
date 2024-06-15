@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Coastal Dunes
   StickerSprite: {fileID: 21300000, guid: b506f4dda0959b34396a16f633e2ef24, type: 3}
+  StickerColor: {r: 0.2415895, g: 0.63419133, b: 0.8396226, a: 1}

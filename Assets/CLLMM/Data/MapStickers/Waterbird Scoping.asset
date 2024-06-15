@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Waterbird Scoping
   StickerSprite: {fileID: 21300000, guid: 8d89f78c140191648931804e61bf13d3, type: 3}
+  StickerColor: {r: 0.35555357, g: 0.8867924, b: 0.38411477, a: 1}

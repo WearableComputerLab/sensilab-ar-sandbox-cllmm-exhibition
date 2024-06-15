@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Ocean Beach Ecology and Risks
   StickerSprite: {fileID: 21300000, guid: 4c8be873e15663749a7c387cf95df509, type: 3}
+  StickerColor: {r: 0.33922213, g: 0.68617725, b: 0.9339623, a: 1}

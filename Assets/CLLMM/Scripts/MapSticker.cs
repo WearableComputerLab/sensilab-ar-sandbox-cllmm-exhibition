@@ -7,5 +7,6 @@ namespace CLLMM.Scripts
     {
         public string StickerName;
         public Sprite StickerSprite;
+        public Color StickerColor = Color.white;
     }
 }

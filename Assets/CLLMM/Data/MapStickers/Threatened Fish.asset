@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Threatened Fish
   StickerSprite: {fileID: 21300000, guid: ff357604cc4f42a4489d719e339dc88d, type: 3}
+  StickerColor: {r: 0.28248486, g: 0.8679245, b: 0.45182684, a: 1}

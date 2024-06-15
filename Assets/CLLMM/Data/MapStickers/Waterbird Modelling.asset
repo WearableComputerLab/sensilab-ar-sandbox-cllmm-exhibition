@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Waterbird Modelling
   StickerSprite: {fileID: 21300000, guid: 3fd0fc79cae182942b5a4b6aa7c59e96, type: 3}
+  StickerColor: {r: 0.35555357, g: 0.8867924, b: 0.38411477, a: 1}

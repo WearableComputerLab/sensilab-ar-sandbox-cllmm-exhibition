@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: First Nations
   StickerSprite: {fileID: 21300000, guid: 4582bf2087dd68341802230c4646caf2, type: 3}
+  StickerColor: {r: 0.31746176, g: 0.7735849, b: 0.6577441, a: 1}

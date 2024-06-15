@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Estuary Connectivity
   StickerSprite: {fileID: 21300000, guid: ea543df9ed021fd428f49937cec280b6, type: 3}
+  StickerColor: {r: 0.2415895, g: 0.63419133, b: 0.8396226, a: 1}

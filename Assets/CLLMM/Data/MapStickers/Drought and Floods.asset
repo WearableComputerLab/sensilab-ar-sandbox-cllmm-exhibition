@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Drought and Floods
   StickerSprite: {fileID: 21300000, guid: 61624b70045c9584d8693cb5217b5a98, type: 3}
+  StickerColor: {r: 0.68266535, g: 0.31287822, b: 0.745283, a: 1}

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Chestnut Teal
   StickerSprite: {fileID: 21300000, guid: af1517faec9c0654f8b2e827da16826c, type: 3}
+  StickerColor: {r: 0.9339623, g: 0.66395754, b: 0.33922213, a: 1}

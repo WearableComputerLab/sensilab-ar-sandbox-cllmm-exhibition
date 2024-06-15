@@ -12,5 +12,10 @@ namespace CLLMM.Scripts
             get => _pinLatLong;
             set => _pinLatLong = value;
         }
+        
+        public virtual void SetPinWorldPosition(Vector3 worldPosition)
+        {
+            transform.position = worldPosition;
+        }
     }
 }

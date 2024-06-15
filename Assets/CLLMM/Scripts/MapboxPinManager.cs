@@ -60,7 +60,7 @@ namespace CLLMM.Scripts
         {
             foreach (MapPin mapPin in _mapPins)
             {
-                mapPin.transform.position = _map.GeoToWorldPosition(mapPin.PinLatLong);
+                mapPin.SetPinWorldPosition(_map.GeoToWorldPosition(mapPin.PinLatLong));
             }
         }
 

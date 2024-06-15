@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Waterbird Movement
   StickerSprite: {fileID: 21300000, guid: 36fba5b08a3c19f4aafb7a6941ed3b05, type: 3}
+  StickerColor: {r: 0.35555357, g: 0.8867924, b: 0.38411477, a: 1}

@@ -78,7 +78,7 @@ namespace CLLMM.Scripts
                 _mapboxController.GetMapWorldPositionFromCameraUV(GetNormalisedMousePositionWithinMapRect()),
                 Quaternion.identity);
             
-            
+            _mapStickerPin.MapSticker = _mapSticker;
             _mapStickerPin.StickerSprite.sprite = _mapSticker.StickerSprite;
             
             _isDragging = true;
@@ -96,6 +96,7 @@ namespace CLLMM.Scripts
                 _mapStickerPin.PinLatLong =
                     _mapboxController.GetMapCoordinatesFromCameraUV(GetNormalisedMousePositionWithinMapRect());
                 _mapboxPinManager.RegisterMapPin(_mapStickerPin);
+                _mapStickerPin.TriggerDropPartciles();
                 _mapStickerPin = null;
             }
             else

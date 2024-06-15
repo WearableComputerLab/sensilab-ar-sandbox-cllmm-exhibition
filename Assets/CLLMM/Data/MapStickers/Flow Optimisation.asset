@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickerName: Flow Optimisation
   StickerSprite: {fileID: 21300000, guid: b10c7a96c551fe843bda7495d47026fe, type: 3}
+  StickerColor: {r: 0.2415895, g: 0.63419133, b: 0.8396226, a: 1}
